@@ -2,16 +2,40 @@ package com.kodex.mapkityandex
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import com.yandex.mapkit.Animation
 import com.yandex.mapkit.MapKit
+import com.yandex.mapkit.MapKitFactory
+import com.yandex.mapkit.geometry.Point
+import com.yandex.mapkit.map.CameraPosition
 import com.yandex.mapkit.mapview.MapView
 
 class MainActivity : AppCompatActivity() {
 
     lateinit var mapKit: MapKit
-    lateinit var mapView: MapView
+    private lateinit var mapView: MapView
+
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+        MapKitFactory.setApiKey("0c548aac-9805-4442-b991-5b0ed966faf1")
+        MapKitFactory.initialize(this)
         setContentView(R.layout.activity_main)
+        mapView = findViewById(R.id.mapView)
+        mapView.map.move(CameraPosition(Point(45.408509, 36.953241), 11.0f, 0.0f, 0.0f ),
+        Animation(Animation.Type.SMOOTH, 1f), null
+        )
     }
+
+    override fun onStart() {
+        mapView.onStart()
+        MapKitFactory.getInstance().onStart()
+        super.onStart()
+    }
+
+    override fun onStop() {
+        mapView.onStop()
+        MapKitFactory.getInstance().onStop()
+        super.onStop()
+    }
+
 }
