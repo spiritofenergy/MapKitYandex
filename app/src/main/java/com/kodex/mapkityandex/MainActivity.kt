@@ -21,9 +21,11 @@ class MainActivity : AppCompatActivity() {
         MapKitFactory.initialize(this)
         setContentView(R.layout.activity_main)
         mapView = findViewById(R.id.mapView)
-        mapView.map.move(CameraPosition(Point(45.408509, 36.953241), 11.0f, 0.0f, 0.0f ),
-        Animation(Animation.Type.SMOOTH, 1f), null
-        )
+        mapView.map.move(CameraPosition(Point(45.409382, 36.949549), 11.0f, 0.0f, 0.0f ),
+        Animation(Animation.Type.SMOOTH, 10f), null)
+        val mapKit: MapKit = MapKitFactory.getInstance()
+        val probki = mapKit.createTrafficLayer(mapView.mapWindow)
+        probki.isTrafficVisible = true
     }
 
     override fun onStart() {
