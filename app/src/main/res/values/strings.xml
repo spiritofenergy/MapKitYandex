@@ -1,3 +1,5 @@
 <resources>
     <string name="app_name">MapKitYandex</string>
+    <string name="traffic_button">Traffic Button</string>
+    <string name="address">Address</string>
 </resources>

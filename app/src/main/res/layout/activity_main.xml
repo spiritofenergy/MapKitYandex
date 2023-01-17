@@ -12,7 +12,7 @@
         android:id="@+id/mapView"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        app:layout_constraintBottom_toBottomOf="@+id/button"
+        app:layout_constraintBottom_toBottomOf="@+id/buttonTraffic"
         tools:layout_editor_absoluteX="0dp">
 
 
@@ -23,16 +23,18 @@
             android:layout_alignParentBottom="true"
             android:layout_marginBottom="54dp"
             android:ems="10"
+            android:textColor="@color/purple_200"
             android:inputType="textPersonName"
-            android:text="Address" />
+            android:text="@string/address" />
     </com.yandex.mapkit.mapview.MapView>
 
     <Button
-        android:id="@+id/button"
+        android:id="@+id/buttonTraffic"
         android:layout_width="match_parent"
         android:layout_height="51dp"
         android:layout_marginBottom="4dp"
-        android:text="Traffic Button"
+        android:text="@string/traffic_button"
+        android:background="@color/purple_200"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toStartOf="@+id/mapView"
         app:layout_constraintStart_toStartOf="parent" />
